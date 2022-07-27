@@ -2,9 +2,9 @@
   position: fixed;
   width: 100vw;
   padding: 1rem;
-  background-color: #222831;
+  padding-left: 3rem;
+  background-color: #b48291;
   color: white;
-  top: 0;
   font-size: 1.5rem;
   display: flex;
   align-items: center;
@@ -21,7 +21,7 @@
 }
 
 .nav-menu {
-  background-color: #393e46;
+  background-color: #968fa3;
   width: 200px;
   height: 100vh;
   display: flex;
@@ -52,16 +52,15 @@
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 8px;
+  padding: 8px 36px;
   border-radius: 4px;
 }
 .nav-text a:hover {
-  background-color: #bd4b4b;
+  background-color: #635c70;
 }
 
 .nav-menu-items {
   margin-top: 4rem;
-  width: 100%;
 }
 
 span {
