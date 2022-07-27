@@ -1,8 +1,8 @@
-import './style.css';
+import './Navbar.css';
 import * as FaIcons from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import SidebarData from './SidebarData';
+import SidebarData from '../Sidebar/SidebarData';
 import { IconContext } from 'react-icons';
 
 function Navbar() {
