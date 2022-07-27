@@ -8,14 +8,11 @@ import { IconContext } from 'react-icons';
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
 
-  const showSidebar = () => {
-    setSidebar(!sidebar);
-  };
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-          <ul className='nav-menu-items' onClick={showSidebar}>
+          <ul className='nav-menu-items' onClick={() => setSidebar(!sidebar)}>
             {SidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
@@ -30,7 +27,10 @@ function Navbar() {
         </nav>
         <div className='navbar '>
           <Link to='#' className='menu-bar'>
-            <FaIcons.FaBars className='bar' onClick={showSidebar} />
+            <FaIcons.FaBars
+              className='bar'
+              onClick={() => setSidebar(!sidebar)}
+            />
           </Link>
           <div className='logo'> Time Tracker</div>
         </div>
