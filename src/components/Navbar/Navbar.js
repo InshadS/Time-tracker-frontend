@@ -1,10 +1,41 @@
-import './Navbar.css';
+import './style.css';
+import * as FaIcons from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import SidebarData from './SidebarData';
+import { IconContext } from 'react-icons';
 
 function Navbar() {
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = () => {
+    setSidebar(!sidebar);
+  };
   return (
-    <div className='navbar d-flex align-items-center'>
-      <div> Time Tracker</div>
-    </div>
+    <>
+      <IconContext.Provider value={{ color: '#fff' }}>
+        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+          <ul className='nav-menu-items' onClick={showSidebar}>
+            {SidebarData.map((item, index) => {
+              return (
+                <li key={index} className={item.cName}>
+                  <Link to={item.path}>
+                    {item.icon}
+                    <span>{item.title}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+        <div className='navbar '>
+          <Link to='#' className='menu-bar'>
+            <FaIcons.FaBars className='bar' onClick={showSidebar} />
+          </Link>
+          <div className='logo'> Time Tracker</div>
+        </div>
+      </IconContext.Provider>
+    </>
   );
 }
 

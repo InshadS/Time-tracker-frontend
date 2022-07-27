@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
 
-body {
+* {
   font-family: 'PT Sans Caption', sans-serif;
   margin: 0;
   padding: 0;
@@ -9,5 +9,5 @@ body {
 .App {
   width: 100vw;
   height: 100vh;
-  background-color: #dcdcdc;
+  background-color: #eeeeee;
 }
