@@ -3,12 +3,13 @@
   width: 100vw;
   padding: 1rem;
   padding-left: 3rem;
-  background-color: #b48291;
+  background-color: #676064;
   color: white;
   font-size: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: start;
+  box-shadow: -15px 15px 10px -15px #111;
 }
 
 .bar {
@@ -21,7 +22,7 @@
 }
 
 .nav-menu {
-  background-color: #968fa3;
+  background-color: #8d878c;
   width: 200px;
   height: 100vh;
   display: flex;
@@ -56,7 +57,7 @@
   border-radius: 4px;
 }
 .nav-text a:hover {
-  background-color: #635c70;
+  background-color: #4a4249;
 }
 
 .nav-menu-items {
