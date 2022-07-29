@@ -1,13 +1,12 @@
 import React from 'react';
+import TaskList from '../components/Task/TaskList';
 import './style.css';
 
 function Home() {
   return (
     <div className='home'>
       <div className='input-container'>
-        <input type='text' placeholder='What are you working on?' />
-        <span>00:00:00</span>
-        <button>Start</button>
+        <TaskList />
       </div>
       <div className='list-container'>
         <div className='week'>
