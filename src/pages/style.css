@@ -1,14 +1,13 @@
 .home {
-  width: 100%;
-  font-size: 3rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .input-container {
-  width: 95%;
+  width: 98%;
   height: 70px;
-  background-color: #a6c2c9;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,8 +15,9 @@
   margin: 60px 10px 10px 10px;
   border-radius: 0px 0px 10px 10px;
   background: #a3a2a2;
-  box-shadow: 23px 23px 59px #7f7e7e, -23px -23px 59px #c7c6c6;
+  box-shadow: 8px 8px 29px #6f6e6e, -8px -8px 29px #d7d6d6;
 }
+
 .input-container input {
   margin: 10px;
   width: 80%;
@@ -25,7 +25,7 @@
   outline: none;
   padding: 16px;
   border-radius: 10px;
-  box-shadow: inset -23px -23px 59px #a5abab, inset 23px 23px 59px #ffffff;
+  box-shadow: inset 10px 10px 24px #d9d9d9, inset -10px -10px 24px #ffffff;
   font-size: 1rem;
   color: #2f2a3b;
   font-weight: bold;
@@ -58,7 +58,21 @@
 }
 
 @media (min-width: 991.98px) {
-  .input-container {
+  .home {
     margin-left: 13rem;
   }
+}
+
+.list-container {
+  width: 98%;
+  height: 75vh;
+  margin: 15px 10px 10px 10px;
+  background-color: #ebf3f3;
+  border-radius: 10px;
+  box-shadow: -6px -6px 47px #a4abab, 6px 6px 47px #ffffff;
+}
+.week {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
 }

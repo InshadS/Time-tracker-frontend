@@ -9,6 +9,12 @@ function Home() {
         <span>00:00:00</span>
         <button>Start</button>
       </div>
+      <div className='list-container'>
+        <div className='week'>
+          <span>This week</span>
+          <span className='week-total'>00:00:00</span>
+        </div>
+      </div>
     </div>
   );
 }
