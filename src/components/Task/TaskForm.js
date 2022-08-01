@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import './style.css';
+import { useStopwatch } from 'react-timer-hook';
 
 function TaskForm(props) {
+  const { seconds, minutes, hours, days, isRunning, start, pause, reset } =
+    useStopwatch({ autoStart: false });
+
   const [task, setTask] = useState('');
 
   const handleSubmit = (e) => {
@@ -14,6 +18,7 @@ function TaskForm(props) {
 
     setTask('');
   };
+
   return (
     <form className='task-form' onClick={handleSubmit}>
       <input
@@ -22,8 +27,9 @@ function TaskForm(props) {
         value={task}
         onChange={(e) => setTask(e.target.value)}
       />
-      <span>00:00:00</span>
-      <button>Start</button>
+      <span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+      <button onClick={start}>Start</button>
+      <button onClick={[pause, reset]}>Stop</button>
     </form>
   );
 }
