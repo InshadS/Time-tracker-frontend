@@ -2,19 +2,20 @@
   position: fixed;
   width: 100vw;
   padding: 1rem;
-  padding-left: 3rem;
   background-color: #676064;
   color: white;
   font-size: 1.5rem;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: space-between;
   box-shadow: -15px 15px 10px -15px #111;
 }
-
-.bar {
-  padding-right: 1rem;
+.logo {
+  padding-left: 3rem;
 }
+/* .bar {
+  padding-right: 1rem;
+} */
 @media (min-width: 991.98px) {
   .bar {
     display: none;
@@ -72,4 +73,22 @@ ul span {
   .nav-menu {
     left: 0;
   }
+}
+
+.list {
+  display: flex;
+  list-style: none;
+  font-size: 1rem;
+  align-items: center;
+  margin-right: 25px;
+}
+.listItem {
+  margin-right: 20px;
+  cursor: pointer;
+}
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
 }
