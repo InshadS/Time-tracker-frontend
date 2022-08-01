@@ -1,23 +1,26 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar';
-import Home from './pages/Home';
-import Calender from './pages/Calender';
-import Projects from './pages/Projects';
-import Reports from './pages/Reports';
-import Team from './pages/Team';
+import Home from './pages/Home/Home';
+import Login from './pages/Login/Login';
+import Tracker from './pages/Home/HomePages/Tracker/Tracker';
+import Calender from './pages/Home/HomePages/Calender';
+import Reports from './pages/Home/HomePages/Reports';
+import Projects from './pages/Home/HomePages/Projects';
+import Team from './pages/Home/HomePages/Team';
 
 function App() {
   return (
     <div className='App'>
       <Router>
-        <Navbar />
         <Routes>
-          <Route path='/' exact element={<Home />} />
-          <Route path='/calender' element={<Calender />} />
-          <Route path='/reports' element={<Reports />} />
-          <Route path='/projects' element={<Projects />} />
-          <Route path='/team' element={<Team />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/' element={<Home />}>
+            <Route path='/tracker' element={<Tracker />} />
+            <Route path='/calender' element={<Calender />} />
+            <Route path='/reports' element={<Reports />} />
+            <Route path='/projects' element={<Projects />} />
+            <Route path='/team' element={<Team />} />
+          </Route>
         </Routes>
       </Router>
     </div>

@@ -26,13 +26,28 @@ function Navbar() {
           </ul>
         </nav>
         <div className='navbar '>
-          <Link to='#' className='menu-bar'>
-            <FaIcons.FaBars
-              className='bar'
-              onClick={() => setSidebar(!sidebar)}
-            />
-          </Link>
-          <div className='logo'> Time Tracker</div>
+          <div className='logo'>
+            <Link to='#' className='menu-bar'>
+              <FaIcons.FaBars
+                className='bar'
+                onClick={() => setSidebar(!sidebar)}
+              />
+            </Link>
+            <div> Time Tracker</div>
+          </div>
+          <div>
+            <ul className='list'>
+              <li className='listItem'>
+                <img
+                  src=' https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png'
+                  alt=''
+                  className='avatar'
+                />
+              </li>
+              <li className='listItem'>Inshad</li>
+              <li className='listItem'>Logout</li>
+            </ul>
+          </div>
         </div>
       </IconContext.Provider>
     </>

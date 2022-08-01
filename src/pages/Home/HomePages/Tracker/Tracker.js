@@ -1,10 +1,10 @@
 import React from 'react';
-import TaskList from '../components/Task/TaskList';
+import TaskList from '../../../../components/Task/TaskList';
 import './style.css';
 
-function Home() {
+function Tracker() {
   return (
-    <div className='home'>
+    <div className='tracker'>
       <div className='input-container'>
         <TaskList />
       </div>
@@ -18,4 +18,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Tracker;

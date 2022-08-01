@@ -1,4 +1,4 @@
-.home {
+.tracker {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,7 +15,7 @@
 }
 
 @media (min-width: 991.98px) {
-  .home {
+  .tracker {
     margin-left: 13rem;
   }
 }
