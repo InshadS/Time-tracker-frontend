@@ -5,8 +5,11 @@ import { useState } from 'react';
 import SidebarData from '../Sidebar/SidebarData';
 import { IconContext } from 'react-icons';
 
-function Navbar() {
+function Navbar({ user }) {
   const [sidebar, setSidebar] = useState(false);
+  const logout = () => {
+    window.open('http://localhost:5000/auth/logout', '_self');
+  };
 
   return (
     <>
@@ -25,6 +28,7 @@ function Navbar() {
             })}
           </ul>
         </nav>
+
         <div className='navbar '>
           <div className='logo'>
             <Link to='#' className='menu-bar'>
@@ -38,14 +42,12 @@ function Navbar() {
           <div>
             <ul className='list'>
               <li className='listItem'>
-                <img
-                  src=' https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png'
-                  alt=''
-                  className='avatar'
-                />
+                <img src={user.photos[0].value} alt='' className='avatar' />
               </li>
-              <li className='listItem'>Inshad</li>
-              <li className='listItem'>Logout</li>
+              <li className='listItem'>{user.displayName}</li>
+              <li className='listItem' onClick={logout}>
+                Logout
+              </li>
             </ul>
           </div>
         </div>

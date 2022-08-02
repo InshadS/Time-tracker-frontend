@@ -7,7 +7,7 @@ import * as BiIcons from 'react-icons/bi';
 const SidebarData = [
   {
     title: 'Timer',
-    path: '/tracker',
+    path: '/',
     icon: <BiIcons.BiTimer />,
     cName: 'nav-text',
   },

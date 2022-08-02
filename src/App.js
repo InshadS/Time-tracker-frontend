@@ -1,5 +1,10 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Tracker from './pages/Home/HomePages/Tracker/Tracker';
@@ -7,15 +12,49 @@ import Calender from './pages/Home/HomePages/Calender';
 import Reports from './pages/Home/HomePages/Reports';
 import Projects from './pages/Home/HomePages/Projects';
 import Team from './pages/Home/HomePages/Team';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const getUser = () => {
+      fetch('http://localhost:5000/auth/login/success', {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Credentials': true,
+        },
+      })
+        .then((response) => {
+          if (response.status === 200) return response.json();
+          throw Error('Authentication failed!');
+        })
+        .then((resObject) => {
+          setUser(resObject.user);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    getUser();
+  }, []);
+  console.log(user);
   return (
     <div className='App'>
       <Router>
         <Routes>
-          <Route path='/login' element={<Login />} />
-          <Route path='/' element={<Home />}>
-            <Route path='/tracker' element={<Tracker />} />
+          <Route
+            path='/login'
+            element={user ? <Navigate to='/' /> : <Login />}
+          />
+          <Route
+            path='/'
+            element={user ? <Home user={user} /> : <Navigate to='/login' />}
+          >
+            <Route path='/' element={<Tracker />} />
             <Route path='/calender' element={<Calender />} />
             <Route path='/reports' element={<Reports />} />
             <Route path='/projects' element={<Projects />} />

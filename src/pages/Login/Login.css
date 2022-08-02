@@ -1,0 +1,42 @@
+.login {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  background: #c9c7c9;
+}
+
+.login h1 {
+  font-size: 2rem;
+  color: #2f2a3b77;
+  padding: 20px;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #474755;
+  padding: 45px;
+  border-radius: 10px;
+}
+.loginButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 45px;
+  margin: 10px;
+  font-size: 1rem;
+  color: #2f2a3b;
+  background: #8d878c;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.loginButton img {
+  width: 32px;
+  height: 32px;
+  padding-right: 15px;
+}
