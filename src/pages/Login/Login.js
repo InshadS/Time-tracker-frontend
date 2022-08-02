@@ -16,15 +16,15 @@ function Login() {
 
   return (
     <div className='login'>
-      <h1>Choose a login method</h1>
+      <h1>Log in to your account</h1>
       <div className='wrapper'>
         <button className='loginButton' onClick={google}>
           <img src={Google} alt='' />
-          Google
+          Login via Google
         </button>
         <button className='loginButton' onClick={github}>
           <img src={Github} alt='' />
-          Github
+          Login via Github
         </button>
       </div>
     </div>

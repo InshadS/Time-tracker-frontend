@@ -16,23 +16,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  row-gap: 10px;
   flex-direction: column;
   background: #474755;
   padding: 45px;
+  margin: 10px;
   border-radius: 10px;
 }
 .loginButton {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 160px;
-  height: 45px;
-  margin: 10px;
+  padding: 8px 28px;
   font-size: 1rem;
-  color: #2f2a3b;
-  background: #8d878c;
+  color: #111;
+  background: #fff;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
 }
 .loginButton img {
