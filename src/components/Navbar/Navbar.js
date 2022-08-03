@@ -37,7 +37,7 @@ function Navbar({ user }) {
                 onClick={() => setSidebar(!sidebar)}
               />
             </Link>
-            <div> Time Tracker</div>
+            <div>time tracker</div>
           </div>
           <div>
             <ul className='list'>
