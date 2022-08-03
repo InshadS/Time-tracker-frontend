@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&family=Pattaya&display=swap');
+
 .login {
   width: 100vw;
   height: 100vh;
@@ -6,11 +8,18 @@
   align-content: center;
   background: #c9c7c9;
 }
+.login span {
+  font-family: 'Pattaya', sans-serif;
+  font-size: 2.5rem;
+  color: #474755;
+  font-weight: bold;
+  padding: 10px;
+}
 
 .login h1 {
-  font-size: 2rem;
-  color: #2f2a3b77;
-  padding: 20px;
+  font-size: 1.5rem;
+  color: #c9c7c99f;
+  padding-bottom: 25px;
 }
 .wrapper {
   display: flex;

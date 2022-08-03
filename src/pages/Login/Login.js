@@ -16,8 +16,10 @@ function Login() {
 
   return (
     <div className='login'>
-      <h1>Log in to your account</h1>
+      <span>time tracker</span>
+
       <div className='wrapper'>
+        <h1>Log in to your account</h1>
         <button className='loginButton' onClick={google}>
           <img src={Google} alt='' />
           Login via Google
