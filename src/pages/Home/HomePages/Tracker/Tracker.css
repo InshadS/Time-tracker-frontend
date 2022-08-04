@@ -21,9 +21,9 @@
 }
 
 .list-container {
+  margin-top: 10px;
   width: 98%;
-  height: 75vh;
-  margin: 15px 10px 10px 10px;
+  height: 70vh;
   background-color: #ebf3f3;
   border-radius: 10px;
   box-shadow: -6px -6px 47px #a4abab, 6px 6px 47px #ffffff;

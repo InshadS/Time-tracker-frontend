@@ -18,9 +18,7 @@
   font-size: 2rem;
   font-family: 'Pattaya', sans-serif;
 }
-/* .bar {
-  padding-right: 1rem;
-} */
+
 @media (min-width: 991.98px) {
   .bar {
     display: none;
@@ -31,7 +29,6 @@
   background-color: #8d878c;
   width: 200px;
   height: 100vh;
-  display: flex;
   justify-content: center;
   left: -100%;
   position: fixed;
@@ -44,10 +41,7 @@
 }
 
 .nav-text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px;
+  padding: 22px;
   list-style: none;
   height: 2rem;
 }
@@ -67,11 +61,11 @@
 }
 
 .nav-menu-items {
-  margin-top: 4rem;
+  margin-top: 3.3rem;
+  padding: 0;
 }
-
-ul span {
-  margin-left: 16px;
+.nav-menu-items span {
+  padding-left: 15px;
 }
 
 @media (min-width: 991.98px) {
@@ -86,7 +80,9 @@ ul span {
   text-decoration: none;
   font-size: 1rem;
   align-items: center;
-  margin-right: 25px;
+}
+.logout-container ul {
+  margin: 0;
 }
 .listItem {
   margin-right: 20px;

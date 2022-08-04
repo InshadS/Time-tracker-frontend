@@ -14,14 +14,14 @@ function Navbar({ user }) {
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
-        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+        <nav className={sidebar ? 'nav-menu active d-flex' : 'nav-menu d-flex'}>
           <ul className='nav-menu-items' onClick={() => setSidebar(!sidebar)}>
             {SidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
                   <Link to={item.path}>
                     {item.icon}
-                    <span>{item.title}</span>
+                    <span> {item.title}</span>
                   </Link>
                 </li>
               );
@@ -39,7 +39,7 @@ function Navbar({ user }) {
             </Link>
             <span>time tracker</span>
           </div>
-          <div>
+          <div className='logout-container'>
             <ul className='list'>
               <li className='listItem'>
                 <img src={user.photos[0].value} alt='' className='avatar' />

@@ -1,6 +1,6 @@
 import React from 'react';
 import TaskList from '../../../../components/Task/TaskList';
-import './style.css';
+import './Tracker.css';
 
 function Tracker() {
   return (
