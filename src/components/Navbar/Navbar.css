@@ -18,6 +18,9 @@
   font-size: 2rem;
   font-family: 'Pattaya', sans-serif;
 }
+.bar {
+  color: #fff;
+}
 
 @media (min-width: 991.98px) {
   .bar {
@@ -59,7 +62,9 @@
 .nav-text a:hover {
   background-color: #4a4249;
 }
-
+.nav-text a:focus {
+  background-color: #4a4249;
+}
 .nav-menu-items {
   margin-top: 3.3rem;
   padding: 0;
@@ -93,4 +98,32 @@
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+/* Bootstrap dropdown */
+.btn-primary {
+  background: none;
+  border: none;
+}
+.btn-primary:hover {
+  background: none;
+}
+.show > .btn-primary.dropdown-toggle {
+  background: none;
+  border: none;
+}
+.btn-primary:focus {
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+.btn-check:active + .btn-primary:focus,
+.btn-check:checked + .btn-primary:focus,
+.btn-primary.active:focus,
+.btn-primary:active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: none;
+}
+.dropdown-item:active {
+  background: none;
 }

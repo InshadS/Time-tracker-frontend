@@ -8,7 +8,7 @@
   align-content: center;
   background: #c9c7c9;
 }
-.login span {
+.login-logo {
   font-family: 'Pattaya', sans-serif;
   font-size: 2.5rem;
   color: #474755;
@@ -20,6 +20,7 @@
   font-size: 1.5rem;
   color: #c9c7c99f;
   padding-bottom: 25px;
+  margin: 0;
 }
 .wrapper {
   display: flex;
@@ -33,19 +34,16 @@
   border-radius: 10px;
 }
 .loginButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 8px 28px;
-  font-size: 1rem;
-  color: #111;
   background: #fff;
   border: none;
   border-radius: 20px;
-  cursor: pointer;
+  display: flex;
 }
 .loginButton img {
   width: 32px;
   height: 32px;
-  padding-right: 15px;
+}
+.loginButton span {
+  padding-left: 10px;
 }

@@ -16,17 +16,23 @@ function Login() {
 
   return (
     <div className='login'>
-      <span>time tracker</span>
+      <span className='login-logo'>time tracker</span>
 
       <div className='wrapper'>
         <h1>Log in to your account</h1>
-        <button className='loginButton' onClick={google}>
+        <button
+          className='loginButton d-flex align-items-center'
+          onClick={google}
+        >
           <img src={Google} alt='' />
-          Login via Google
+          <span>Login via Google</span>
         </button>
-        <button className='loginButton' onClick={github}>
+        <button
+          className='loginButton d-flex align-items-center'
+          onClick={github}
+        >
           <img src={Github} alt='' />
-          Login via Github
+          <span>Login via Github</span>
         </button>
       </div>
     </div>
