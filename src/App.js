@@ -54,7 +54,7 @@ function App() {
             path='/'
             element={user ? <Home user={user} /> : <Navigate to='/login' />}
           >
-            <Route path='/' element={<Tracker />} />
+            <Route path='/' element={<Tracker user={user} />} />
             <Route path='/calender' element={<Calender />} />
             <Route path='/reports' element={<Reports />} />
             <Route path='/projects' element={<Projects />} />

@@ -1,21 +1,11 @@
 import React, { useState } from 'react';
 import './style.css';
 
-function TaskForm(props) {
+function TaskForm({ user }) {
   const [task, setTask] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    props.onSubmit({
-      name: task,
-      start_time: new Date(),
-    });
-
-    setTask('');
-  };
   return (
-    <form className='task-form' onClick={handleSubmit}>
+    <form className='task-form'>
       <input
         type='text'
         placeholder='What are you working on?'
