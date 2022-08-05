@@ -30,7 +30,7 @@ function App() {
       })
         .then((response) => {
           if (response.status === 200) return response.json();
-          throw Error('Authentication failed!');
+          throw new Error('Authentication failed!');
         })
         .then((resObject) => {
           setUser(resObject.user);

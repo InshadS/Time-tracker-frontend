@@ -43,13 +43,13 @@ function Navbar({ user }) {
 
         <Dropdown className='logout-dropdown'>
           <Dropdown.Toggle>
-            <img src={user.photos[0].value} alt='' className='avatar' />{' '}
-            {user.displayName}
+            {/* <img src={user.photos[0].value} alt='' className='avatar' />{' '} */}
+            {user.name}
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item>
-              <img src={user.photos[0].value} alt='' className='avatar' />{' '}
-              {user.displayName}
+              {/* <img src={user.photos[0].value} alt='' className='avatar' />{' '} */}
+              {user.name}
             </Dropdown.Item>
             <Dropdown.Item onClick={logout}>
               <CgIcons.CgLogOut /> Logout
