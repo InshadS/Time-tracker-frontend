@@ -2,17 +2,21 @@ import React, { useState } from 'react';
 import { addTask } from '../../api/task';
 import './style.css';
 
-function TaskForm({ user, onSubmit }) {
+function TaskForm(TaskList) {
   const [task, setTask] = useState('');
-  const userId = user.id;
+  const userId = TaskList.user.id;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    TaskList.onSubmit({
+      id: userId,
+      name: task,
+      start_time: new Date(),
+    });
+
     await addTask(userId, task);
 
-    onSubmit({
-      text: task,
-    });
     setTask('');
   };
   // console.log(addTask);
