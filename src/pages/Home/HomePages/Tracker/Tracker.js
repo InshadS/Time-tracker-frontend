@@ -1,12 +1,12 @@
 import React from 'react';
-import TaskList from '../../../../components/Task/TaskList';
+import TaskForm from '../../../../components/Task/TaskForm';
 import './Tracker.css';
 
 function Tracker({ user }) {
   return (
     <div className='tracker'>
       <div className='input-container'>
-        <TaskList user={user} />
+        <TaskForm user={user} />
       </div>
       <div className='list-container'>
         <div className='week'>

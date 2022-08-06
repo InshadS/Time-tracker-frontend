@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
-import TaskForm from './TaskForm';
 
-function TaskList({ user }) {
-  return (
-    <div>
-      <TaskForm user={user} />
-    </div>
-  );
+function TaskList() {
+  return <div>TaskList</div>;
 }
 
 export default TaskList;
