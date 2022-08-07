@@ -15,8 +15,16 @@ function TaskList({ user }) {
     console.log(newTasks);
   };
   return (
-    <div>
-      <TaskForm user={user} onSubmit={addTask} />
+    <div className='w-100 d-flex align-items-center flex-column'>
+      <div className='input-container'>
+        <TaskForm user={user} onSubmit={addTask} />
+      </div>
+      <div className='list-container'>
+        <div className='week'>
+          <span>This week</span>
+          <span className='week-total'>00:00:00</span>
+        </div>
+      </div>
     </div>
   );
 }

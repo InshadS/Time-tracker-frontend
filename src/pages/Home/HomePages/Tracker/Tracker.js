@@ -4,16 +4,8 @@ import './Tracker.css';
 
 function Tracker({ user }) {
   return (
-    <div className='tracker'>
-      <div className='input-container'>
-        <TaskList user={user} />
-      </div>
-      <div className='list-container'>
-        <div className='week'>
-          <span>This week</span>
-          <span className='week-total'>00:00:00</span>
-        </div>
-      </div>
+    <div className='tracker d-flex'>
+      <TaskList user={user} />
     </div>
   );
 }

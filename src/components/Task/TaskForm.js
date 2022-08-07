@@ -15,14 +15,17 @@ function TaskForm(TaskList) {
       start_time: new Date(),
     });
 
-    await addTask(userId, task);
+    // await addTask(userId, task);
 
     setTask('');
   };
   // console.log(addTask);
 
   return (
-    <form className='task-form' onSubmit={handleSubmit}>
+    <form
+      className='task-form d-flex justify-content-between align-items-center'
+      onSubmit={handleSubmit}
+    >
       <input
         type='text'
         placeholder='What are you working on?'

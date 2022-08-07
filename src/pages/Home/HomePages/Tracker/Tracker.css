@@ -1,35 +1,9 @@
 .tracker {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.input-container {
-  width: 98%;
-  padding-top: 10px;
-  margin: 60px 10px 10px 10px;
-  border-radius: 0px 0px 10px 10px;
-  background: #a3a2a2;
-  box-shadow: 8px 8px 29px #6f6e6e, -8px -8px 29px #d7d6d6;
+  padding-top: 60px;
 }
 
 @media (min-width: 991.98px) {
   .tracker {
-    margin-left: 13rem;
+    margin-left: 12.5rem;
   }
-}
-
-.list-container {
-  margin-top: 10px;
-  width: 98%;
-  height: 70vh;
-  background-color: #ebf3f3;
-  border-radius: 10px;
-  box-shadow: -6px -6px 47px #a4abab, 6px 6px 47px #ffffff;
-}
-.week {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px;
 }
