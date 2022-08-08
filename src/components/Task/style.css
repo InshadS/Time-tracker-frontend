@@ -53,8 +53,10 @@
   border-radius: 10px;
   box-shadow: -6px -6px 47px #a4abab, 6px 6px 47px #ffffff;
 }
-.week {
-  display: flex;
-  justify-content: space-between;
+.TaskCard {
+  background: #d3dbdb;
+  color: #111;
   margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
 }
