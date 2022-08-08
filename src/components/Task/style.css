@@ -52,11 +52,19 @@
   margin-top: 10px;
   border-radius: 10px;
   box-shadow: -6px -6px 47px #a4abab, 6px 6px 47px #ffffff;
+  overflow: scroll;
+  overflow-x: hidden;
 }
+
 .TaskCard {
-  background: #d3dbdb;
+  background: #b8b7b847;
   color: #111;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 10px;
+  border-bottom: 1px solid #11111140;
+  padding: 15px;
+  /* margin: 0px 10px 0px 10px; */
+  /* border-radius: 10px; */
+}
+.task-tools {
+  font-size: 24px;
+  display: flex;
 }

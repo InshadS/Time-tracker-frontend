@@ -12,11 +12,6 @@ function TaskList({ user }) {
       setListTask(response.data);
     });
   }, [submitTask]);
-  // console.log(listTask);
-
-  // if (!task.task || /^\s*$/.test(task.task)) {
-  //   return;
-  // }
 
   return (
     <div className='w-100 d-flex align-items-center flex-column'>
