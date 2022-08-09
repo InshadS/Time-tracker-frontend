@@ -12,6 +12,7 @@ function TaskList({ user }) {
       setListTask(response.data);
     });
   }, [submitTask]);
+  console.log(listTask);
 
   return (
     <div className='w-100 d-flex align-items-center flex-column'>
@@ -27,7 +28,9 @@ function TaskList({ user }) {
           <span>This week</span>
           <span className='week-total'>00:00:00</span>
         </div>
-        {listTask && listTask.map((item) => <TaskCard item={item} />)}
+        {listTask.map((item) => (
+          <TaskCard item={item} />
+        ))}
       </div>
     </div>
   );
