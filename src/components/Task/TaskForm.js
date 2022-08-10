@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { addTask } from '../../api/task';
 import './style.css';
 
-function TaskForm({ user, submitTask, setSubmitTask }) {
+function TaskForm({ user, listTask, setListTask }) {
   const [task, setTask] = useState('');
   const [startTime, setStartTime] = useState('');
   const userId = user.id;
@@ -15,7 +15,7 @@ function TaskForm({ user, submitTask, setSubmitTask }) {
     setStartTime(moment().format());
   };
 
-  const endSubmit = async (e) => {
+  const endSubmit = async () => {
     const endTime = moment().format();
 
     const difference = moment(endTime).diff(moment(startTime));
@@ -23,13 +23,18 @@ function TaskForm({ user, submitTask, setSubmitTask }) {
     const duration = moment.duration(difference);
     const format = moment.utc((duration * 1000) / 1000).format('HH:mm:ss');
 
-    console.log(duration);
-
     const taskDuration = format;
 
-    setSubmitTask(!submitTask);
+    const newTask = await addTask(
+      userId,
+      task,
+      startTime,
+      endTime,
+      taskDuration
+    );
 
-    await addTask(userId, task, startTime, endTime, taskDuration);
+    setListTask([newTask.data, ...listTask]);
+
     setTask('');
     setStartTime();
   };

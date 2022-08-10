@@ -8,7 +8,7 @@ export const addTask = async (
   endTime,
   taskDuration
 ) => {
-  await axios.post(`/task/${userId}/add-task`, {
+  return await axios.post(`/task/${userId}/add-task`, {
     task: task,
     start_time: startTime,
     end_time: endTime,
@@ -16,9 +16,16 @@ export const addTask = async (
   });
 };
 
-//End task
-// export const endTask = async (id) => {
-//   return await axios.post(`/task/end-task/${id}`);
+//Delete task
+export const deleteTask = async (id) => {
+  await axios.post(`/task/delete-task/${id}`);
+};
+
+//Update task
+// export const updateTask = async (id, task) => {
+//   await axios.post(`/task/update-task/${id}`, {
+//     task: task,
+//   });
 // };
 
 //Get all tasks

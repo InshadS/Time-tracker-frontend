@@ -4,24 +4,19 @@ import TaskCard from './TaskCard';
 import { getTask } from '../../api/task';
 
 function TaskList({ user }) {
-  const [submitTask, setSubmitTask] = useState(false);
-
   const [listTask, setListTask] = useState([]);
+  const [removeTask, setRemoveTask] = useState(false);
+
   useEffect(() => {
     getTask(user.id).then((response) => {
       setListTask(response.data);
     });
-  }, [submitTask]);
-  console.log(listTask);
+  }, [removeTask]);
 
   return (
     <div className='w-100 d-flex align-items-center flex-column'>
       <div className='input-container'>
-        <TaskForm
-          user={user}
-          submitTask={submitTask}
-          setSubmitTask={setSubmitTask}
-        />
+        <TaskForm user={user} listTask={listTask} setListTask={setListTask} />
       </div>
       <div className='list-container'>
         <div className='week d-flex justify-content-between m-3'>
@@ -29,7 +24,13 @@ function TaskList({ user }) {
           <span className='week-total'>00:00:00</span>
         </div>
         {listTask.map((item) => (
-          <TaskCard item={item} />
+          <TaskCard
+            key={item.id}
+            item={item}
+            listTask={listTask}
+            removeTask={removeTask}
+            setRemoveTask={setRemoveTask}
+          />
         ))}
       </div>
     </div>

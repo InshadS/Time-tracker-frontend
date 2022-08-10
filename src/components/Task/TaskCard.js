@@ -1,13 +1,29 @@
 import moment from 'moment';
-import React from 'react';
+import React, { useState } from 'react';
 import * as MdIcons from 'react-icons/md';
+import { deleteTask, updateTask } from '../../api/task';
 
-function TaskCard({ item }) {
+function TaskCard({ item, listTask, removeTask, setRemoveTask }) {
+  const [value, setValue] = useState(item.task);
+
+  const handleDelete = async () => {
+    await deleteTask(item.id);
+    setRemoveTask(!removeTask);
+
+    //   const index = listTask.findIndex((e) => e.id === item.id);
+    //   listTask.splice(index, 1);
+  };
   return (
     <div>
       <div className='TaskCard d-flex justify-content-between align-items-center'>
-        <span>{item.task}</span>
-        <div className='task-duration'>
+        <input
+          type='text'
+          className='task-field'
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+        {/* <span>{item.task}</span> */}
+        <div className='time-field'>
           {item.end_time === null ? (
             ''
           ) : (
@@ -16,11 +32,13 @@ function TaskCard({ item }) {
               {moment(item.end_time).format('h:mm a')}{' '}
             </span>
           )}
+        </div>
+        <div className='task-duration'>
           {item.task_duration === null ? '' : <span>{item.task_duration}</span>}
         </div>
         <div className='task-tools'>
           <MdIcons.MdEditNote />
-          <MdIcons.MdDeleteForever />
+          <MdIcons.MdDeleteForever onClick={handleDelete} />
         </div>
       </div>
     </div>
