@@ -13,6 +13,13 @@ function TaskCard({ item, listTask, removeTask, setRemoveTask }) {
     //   const index = listTask.findIndex((e) => e.id === item.id);
     //   listTask.splice(index, 1);
   };
+  const handleUpdate = async () => {
+    if (/^\s*$/.test(value)) {
+      return;
+    } else if (value !== item.task) {
+      updateTask(item.id, value);
+    }
+  };
   return (
     <div>
       <div className='TaskCard d-flex justify-content-between align-items-center'>
@@ -20,6 +27,7 @@ function TaskCard({ item, listTask, removeTask, setRemoveTask }) {
           type='text'
           className='task-field'
           value={value}
+          onBlur={() => handleUpdate()}
           onChange={(e) => setValue(e.target.value)}
         />
         {/* <span>{item.task}</span> */}
@@ -37,7 +45,6 @@ function TaskCard({ item, listTask, removeTask, setRemoveTask }) {
           {item.task_duration === null ? '' : <span>{item.task_duration}</span>}
         </div>
         <div className='task-tools'>
-          <MdIcons.MdEditNote />
           <MdIcons.MdDeleteForever onClick={handleDelete} />
         </div>
       </div>

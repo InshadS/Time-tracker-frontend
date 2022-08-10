@@ -22,11 +22,11 @@ export const deleteTask = async (id) => {
 };
 
 //Update task
-// export const updateTask = async (id, task) => {
-//   await axios.post(`/task/update-task/${id}`, {
-//     task: task,
-//   });
-// };
+export const updateTask = async (id, task) => {
+  await axios.post(`/task/update-task/${id}`, {
+    task: task,
+  });
+};
 
 //Get all tasks
 export const getTask = async (userId) => {
