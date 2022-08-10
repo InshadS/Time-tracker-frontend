@@ -19,6 +19,8 @@ function TaskList({ user }) {
         <TaskForm user={user} listTask={listTask} setListTask={setListTask} />
       </div>
       <div className='list-container'>
+        {/* {listTask.map((item) =>() )} */}
+
         <div className='week d-flex justify-content-between m-3'>
           <span>This week</span>
           <span className='week-total'>00:00:00</span>

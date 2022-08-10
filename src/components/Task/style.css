@@ -64,6 +64,12 @@
   /* margin: 0px 10px 0px 10px; */
   /* border-radius: 10px; */
 }
+.TaskCard:hover {
+  background: #b8b7b8bd;
+}
+.TaskCard-focus {
+  background: #b8b7b8bd;
+}
 .task-tools {
   font-size: 24px;
   display: flex;
@@ -73,8 +79,13 @@
   border: none;
   outline: none;
   background: none;
+  border: 1px solid transparent;
 }
 .task-field:hover {
+  border: 1px solid rgba(17, 17, 17, 0.377);
+  border-radius: 5px;
+}
+.task-field:focus {
   border: 1px solid rgba(17, 17, 17, 0.377);
   border-radius: 5px;
 }

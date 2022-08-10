@@ -21,32 +21,30 @@ function TaskCard({ item, listTask, removeTask, setRemoveTask }) {
     }
   };
   return (
-    <div>
-      <div className='TaskCard d-flex justify-content-between align-items-center'>
-        <input
-          type='text'
-          className='task-field'
-          value={value}
-          onBlur={() => handleUpdate()}
-          onChange={(e) => setValue(e.target.value)}
-        />
-        {/* <span>{item.task}</span> */}
-        <div className='time-field'>
-          {item.end_time === null ? (
-            ''
-          ) : (
-            <span>
-              {moment(item.start_time).format('h:mm a')} -{' '}
-              {moment(item.end_time).format('h:mm a')}{' '}
-            </span>
-          )}
-        </div>
-        <div className='task-duration'>
-          {item.task_duration === null ? '' : <span>{item.task_duration}</span>}
-        </div>
-        <div className='task-tools'>
-          <MdIcons.MdDeleteForever onClick={handleDelete} />
-        </div>
+    <div className='TaskCard d-flex justify-content-between align-items-center'>
+      <input
+        type='text'
+        className='task-field'
+        value={value}
+        onBlur={(e) => {
+          handleUpdate();
+          e.target.parentElement.classList.remove('TaskCard-focus');
+        }}
+        onChange={(e) => setValue(e.target.value)}
+        onFocus={(e) => {
+          e.target.parentElement.classList.add('TaskCard-focus');
+        }}
+      />
+      <div className='time-field'>
+        <span>
+          {moment(item.start_time).format('h:mm a')} -{' '}
+          {moment(item.end_time).format('h:mm a')}{' '}
+        </span>
+        <span>{item.task_duration}</span>
+      </div>
+
+      <div className='task-tools'>
+        <MdIcons.MdDeleteForever onClick={handleDelete} />
       </div>
     </div>
   );
