@@ -44,7 +44,10 @@ function TaskCard({ item, listTask, removeTask, setRemoveTask }) {
       </div>
 
       <div className='task-tool d-flex justify-content-end'>
-        <MdIcons.MdDeleteForever onClick={handleDelete} />
+        <MdIcons.MdDeleteForever
+          onClick={handleDelete}
+          style={{ cursor: 'pointer' }}
+        />
       </div>
     </div>
   );

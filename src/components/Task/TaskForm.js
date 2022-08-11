@@ -2,17 +2,29 @@ import moment from 'moment';
 import React, { useState } from 'react';
 import { addTask } from '../../api/task';
 import './style.css';
+import { useStopwatch } from 'react-timer-hook';
 
 function TaskForm({ user, listTask, setListTask }) {
   const [task, setTask] = useState('');
   const [startTime, setStartTime] = useState('');
   const userId = user.id;
 
+  const stopwatchOffset = new Date();
+  stopwatchOffset.setSeconds(stopwatchOffset.getSeconds());
+
+  const { seconds, minutes, hours, isRunning, start, pause, reset } =
+    useStopwatch({ autoStart: false, offsetTimestamp: stopwatchOffset });
+
+  const hourTime = hours < 10 ? `0${hours}` : `${hours}`;
+  const secondTime = seconds < 10 ? `0${seconds}` : `${seconds}`;
+  const minuteTime = minutes < 10 ? `0${minutes}` : `${minutes}`;
+
   const handleSubmit = () => {
     if (/^\s*$/.test(task)) {
       return;
     }
     setStartTime(moment().format());
+    start();
   };
 
   const endSubmit = async () => {
@@ -37,6 +49,7 @@ function TaskForm({ user, listTask, setListTask }) {
 
     setTask('');
     setStartTime();
+    reset();
   };
 
   return (
@@ -48,8 +61,9 @@ function TaskForm({ user, listTask, setListTask }) {
         onChange={(e) => setTask(e.target.value)}
       />
       <div className='timer d-flex align-items-center justify-content-end'>
-        <span>00:00:00</span>
-
+        {/* <span>00:00:00</span> */}
+        <span>{hourTime}</span>:<span>{minuteTime}</span>:
+        <span>{secondTime}</span>
         {startTime ? (
           <button className='btn-stop' onClick={() => endSubmit()}>
             Stop
