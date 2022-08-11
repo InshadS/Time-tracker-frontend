@@ -21,7 +21,7 @@ function TaskCard({ item, listTask, removeTask, setRemoveTask }) {
     }
   };
   return (
-    <div className='TaskCard d-flex justify-content-between align-items-center'>
+    <div className='TaskCard '>
       <input
         type='text'
         className='task-field'
@@ -35,15 +35,15 @@ function TaskCard({ item, listTask, removeTask, setRemoveTask }) {
           e.target.parentElement.classList.add('TaskCard-focus');
         }}
       />
-      <div className='time-field'>
+      <div className='time-field d-flex justify-content-between'>
         <span>
           {moment(item.start_time).format('h:mm a')} -{' '}
           {moment(item.end_time).format('h:mm a')}{' '}
         </span>
-        <span>{item.task_duration}</span>
+        <span className='duration'>{item.task_duration}</span>
       </div>
 
-      <div className='task-tools'>
+      <div className='task-tool d-flex justify-content-end'>
         <MdIcons.MdDeleteForever onClick={handleDelete} />
       </div>
     </div>

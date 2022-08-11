@@ -40,22 +40,26 @@ function TaskForm({ user, listTask, setListTask }) {
   };
 
   return (
-    <div className='task-form d-flex justify-content-between align-items-center'>
+    <div className='task-form '>
       <input
         type='text'
         placeholder='What are you working on?'
         value={task}
         onChange={(e) => setTask(e.target.value)}
       />
-      {/* <span>00:00:00</span> */}
+      <div className='timer d-flex align-items-center justify-content-end'>
+        <span>00:00:00</span>
 
-      {startTime ? (
-        <button className='btn-danger' onClick={() => endSubmit()}>
-          Stop
-        </button>
-      ) : (
-        <button onClick={() => handleSubmit()}>Start</button>
-      )}
+        {startTime ? (
+          <button className='btn-stop' onClick={() => endSubmit()}>
+            Stop
+          </button>
+        ) : (
+          <button className='btn-start' onClick={() => handleSubmit()}>
+            Start
+          </button>
+        )}
+      </div>
     </div>
   );
 }
