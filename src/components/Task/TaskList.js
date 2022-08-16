@@ -20,38 +20,24 @@ function TaskList({ user }) {
         <TaskForm user={user} listTask={listTask} setListTask={setListTask} />
       </div>
       <div className='list-container'>
-        <div className='week d-flex justify-content-between m-3'>
-          <span>This week</span>
-          <span className='week-total'>00:00:00</span>
+        <div className='week d-flex justify-content-end m-3'>
+          <span>Week total</span>
+          <span className='week-total'>
+            <span>00:00:00</span>
+            {/* {listTask.map((item) => (
+              <span>{item.task_duration}</span>
+            ))} */}
+          </span>
         </div>
-        <div>Today</div>
-        {listTask.map(
-          (item) =>
-            moment(item.start_time).format('DD-MM-YY') ===
-              moment().format('DD-MM-YY') && (
-              <TaskCard
-                key={item.id}
-                item={item}
-                listTask={listTask}
-                removeTask={removeTask}
-                setRemoveTask={setRemoveTask}
-              />
-            )
-        )}
-        <div>Yesterday</div>
-        {listTask.map(
-          (item) =>
-            moment(item.start_time).format('DD-MM-YY') ===
-              moment().subtract(1, 'days').format('DD-MM-YY') && (
-              <TaskCard
-                key={item.id}
-                item={item}
-                listTask={listTask}
-                removeTask={removeTask}
-                setRemoveTask={setRemoveTask}
-              />
-            )
-        )}
+        {listTask.map((item) => (
+          <TaskCard
+            key={item.id}
+            item={item}
+            listTask={listTask}
+            removeTask={removeTask}
+            setRemoveTask={setRemoveTask}
+          />
+        ))}
       </div>
     </div>
   );

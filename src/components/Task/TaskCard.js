@@ -34,15 +34,22 @@ function TaskCard({ item, listTask, removeTask, setRemoveTask }) {
         onFocus={(e) => {
           e.target.parentElement.classList.add('TaskCard-focus');
         }}
-      />
+      />{' '}
+      {moment(item.start_time).format('DD-MM-YY') ===
+      moment().format('DD-MM-YY') ? (
+        <span className='task-date'>Today</span>
+      ) : (
+        <span className='task-date'>
+          {moment(item.start_time).format('ddd, DD YYYY')}
+        </span>
+      )}
       <div className='time-field d-flex justify-content-between'>
         <span>
           {moment(item.start_time).format('h:mm a')} -{' '}
           {moment(item.end_time).format('h:mm a')}{' '}
         </span>
-        <span className='duration'>{item.task_duration}</span>
+        <span className='duration '>{item.task_duration}</span>
       </div>
-
       <div className='task-tool d-flex justify-content-end'>
         <MdIcons.MdDeleteForever
           onClick={handleDelete}
