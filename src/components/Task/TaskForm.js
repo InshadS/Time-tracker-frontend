@@ -15,8 +15,10 @@ const TaskForm = observer(() => {
   const stopwatchOffset = new Date();
   stopwatchOffset.setSeconds(stopwatchOffset.getSeconds());
 
-  const { seconds, minutes, hours, isRunning, start, pause, reset } =
-    useStopwatch({ autoStart: false, offsetTimestamp: stopwatchOffset });
+  const { seconds, minutes, hours, start, reset } = useStopwatch({
+    autoStart: false,
+    offsetTimestamp: stopwatchOffset,
+  });
 
   const hourTime = hours < 10 ? `0${hours}` : `${hours}`;
   const secondTime = seconds < 10 ? `0${seconds}` : `${seconds}`;

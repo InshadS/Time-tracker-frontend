@@ -12,10 +12,9 @@ import Calender from './pages/Home/HomePages/Calender';
 import Reports from './pages/Home/HomePages/Reports';
 import Projects from './pages/Home/HomePages/Projects';
 import Team from './pages/Home/HomePages/Team';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useStore } from './store';
-import { getUser } from './api/auth';
 
 const App = observer(() => {
   const { authStore } = useStore();
