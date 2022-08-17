@@ -5,8 +5,6 @@ import { observer } from 'mobx-react-lite';
 import { useStore } from '../../store/index';
 
 const TaskList = observer(({ user }) => {
-  const [listTask, setListTask] = useState([]);
-
   const { tasksStore } = useStore();
   const { tasks, getTask, setUserId } = tasksStore;
 
@@ -19,7 +17,7 @@ const TaskList = observer(({ user }) => {
   return (
     <div className='w-100 d-flex align-items-center flex-column'>
       <div className='input-container'>
-        <TaskForm user={user} listTask={listTask} setListTask={setListTask} />
+        <TaskForm />
       </div>
       <div className='list-container'>
         <div className='week d-flex justify-content-end m-3'>
@@ -32,7 +30,7 @@ const TaskList = observer(({ user }) => {
           </span>
         </div>
         {tasks.map((item) => (
-          <TaskCard key={item.id} item={item} listTask={listTask} />
+          <TaskCard key={item.id} item={item} />
         ))}
       </div>
     </div>

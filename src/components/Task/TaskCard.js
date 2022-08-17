@@ -2,7 +2,6 @@ import { observer } from 'mobx-react-lite';
 import moment from 'moment';
 import React, { useState } from 'react';
 import * as MdIcons from 'react-icons/md';
-import { updateTask } from '../../api/task';
 import { useStore } from '../../store/index';
 
 const TaskCard = observer(({ item }) => {
