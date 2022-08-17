@@ -15,38 +15,15 @@ import Team from './pages/Home/HomePages/Team';
 import { useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useStore } from './store';
+import { getUser } from './api/auth';
 
 const App = observer(() => {
-  const [user, setUser] = useState(null);
-
-  const { tasksStore } = useStore();
-  const { setUserId } = tasksStore;
+  const { authStore } = useStore();
+  const { getUser, user } = authStore;
 
   useEffect(() => {
-    const getUser = () => {
-      fetch('http://localhost:5000/auth/login/success', {
-        method: 'GET',
-        credentials: 'include',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Credentials': true,
-        },
-      })
-        .then((response) => {
-          if (response.status === 200) return response.json();
-          throw new Error('Authentication failed!');
-        })
-        .then((resObject) => {
-          setUser(resObject.user);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
     getUser();
   }, []);
-  setUserId(user?.id);
 
   return (
     <div className='App'>
