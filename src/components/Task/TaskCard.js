@@ -1,17 +1,19 @@
+import { observer } from 'mobx-react-lite';
 import moment from 'moment';
 import React, { useState } from 'react';
 import * as MdIcons from 'react-icons/md';
-import { deleteTask, updateTask } from '../../api/task';
+import { updateTask } from '../../api/task';
+import { useStore } from '../../store/index';
 
-function TaskCard({ item, listTask, removeTask, setRemoveTask }) {
+const TaskCard = observer(({ item }) => {
   const [value, setValue] = useState(item.task);
 
-  const handleDelete = async () => {
-    await deleteTask(item.id);
-    setRemoveTask(!removeTask);
+  const { tasksStore } = useStore();
+  const { deleteTask, setTaskId } = tasksStore;
 
-    //   const index = listTask.findIndex((e) => e.id === item.id);
-    //   listTask.splice(index, 1);
+  const handleDelete = async () => {
+    setTaskId(item.id);
+    deleteTask();
   };
   const handleUpdate = async () => {
     if (/^\s*$/.test(value)) {
@@ -58,6 +60,6 @@ function TaskCard({ item, listTask, removeTask, setRemoveTask }) {
       </div>
     </div>
   );
-}
+});
 
 export default TaskCard;

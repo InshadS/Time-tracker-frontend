@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-import { getTask } from '../../api/task';
+import { deleteTask, getTask } from '../../api/task';
 
 class tasksStore {
   constructor() {
@@ -29,6 +29,13 @@ class tasksStore {
     if (response.status === 200) {
       this.setTasks(response.data);
     }
+  };
+
+  deleteTask = async () => {
+    await deleteTask(this.taskId);
+    const index = this.tasks.findIndex((e) => e.id === this.taskId);
+    console.log(this.taskId);
+    this.tasks.splice(index, 1);
   };
 }
 

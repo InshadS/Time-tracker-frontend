@@ -6,7 +6,6 @@ import { useStore } from '../../store/index';
 
 const TaskList = observer(({ user }) => {
   const [listTask, setListTask] = useState([]);
-  const [removeTask, setRemoveTask] = useState(false);
 
   const { tasksStore } = useStore();
   const { tasks, getTask, setUserId } = tasksStore;
@@ -15,7 +14,7 @@ const TaskList = observer(({ user }) => {
 
   useEffect(() => {
     getTask();
-  }, [removeTask]);
+  }, []);
 
   return (
     <div className='w-100 d-flex align-items-center flex-column'>
@@ -33,13 +32,7 @@ const TaskList = observer(({ user }) => {
           </span>
         </div>
         {tasks.map((item) => (
-          <TaskCard
-            key={item.id}
-            item={item}
-            listTask={listTask}
-            removeTask={removeTask}
-            setRemoveTask={setRemoveTask}
-          />
+          <TaskCard key={item.id} item={item} listTask={listTask} />
         ))}
       </div>
     </div>
