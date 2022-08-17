@@ -9,7 +9,7 @@ const TaskCard = observer(({ item }) => {
   const [value, setValue] = useState(item.task);
 
   const { tasksStore } = useStore();
-  const { deleteTask, setTaskId } = tasksStore;
+  const { deleteTask, setTaskId, updateTask } = tasksStore;
 
   const handleDelete = async () => {
     setTaskId(item.id);
@@ -19,7 +19,8 @@ const TaskCard = observer(({ item }) => {
     if (/^\s*$/.test(value)) {
       return;
     } else if (value !== item.task) {
-      updateTask(item.id, value);
+      setTaskId(item.id);
+      updateTask(value);
     }
   };
   return (
