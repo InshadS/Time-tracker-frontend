@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-import { addTask, deleteTask, getTask } from '../../api/task';
+import { addTask, deleteTask, getTask, updateTask } from '../../api/task';
 
 class tasksStore {
   constructor() {
@@ -24,6 +24,7 @@ class tasksStore {
     this.userId = id;
   };
 
+  //Get all tasks
   getTask = async () => {
     const response = await getTask(this.userId);
     if (response.status === 200) {
@@ -31,6 +32,7 @@ class tasksStore {
     }
   };
 
+  //Delete task
   deleteTask = async () => {
     await deleteTask(this.taskId);
     const index = this.tasks.findIndex((e) => e.id === this.taskId);
@@ -38,6 +40,7 @@ class tasksStore {
     this.tasks.splice(index, 1);
   };
 
+  //Add task
   addTask = async (task, startTime, endTime, taskDuration) => {
     const response = await addTask(
       this.userId,
@@ -59,6 +62,11 @@ class tasksStore {
     if (response.status === 200) {
       this.tasks.unshift(newTask);
     }
+  };
+
+  //Update task
+  updateTask = async (task) => {
+    await updateTask(this.taskId, task);
   };
 }
 
