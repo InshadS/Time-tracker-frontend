@@ -13,9 +13,14 @@ import Reports from './pages/Home/HomePages/Reports';
 import Projects from './pages/Home/HomePages/Projects';
 import Team from './pages/Home/HomePages/Team';
 import { useEffect, useState } from 'react';
+import { observer } from 'mobx-react-lite';
+import { useStore } from './store';
 
-function App() {
+const App = observer(() => {
   const [user, setUser] = useState(null);
+
+  const { tasksStore } = useStore();
+  const { setUserId } = tasksStore;
 
   useEffect(() => {
     const getUser = () => {
@@ -41,7 +46,8 @@ function App() {
     };
     getUser();
   }, []);
-  console.log(user);
+  setUserId(user?.id);
+
   return (
     <div className='App'>
       <Router>
@@ -64,6 +70,6 @@ function App() {
       </Router>
     </div>
   );
-}
+});
 
 export default App;

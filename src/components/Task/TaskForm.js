@@ -1,13 +1,16 @@
 import moment from 'moment';
 import React, { useState } from 'react';
-import { addTask } from '../../api/task';
 import './style.css';
 import { useStopwatch } from 'react-timer-hook';
+import { useStore } from '../../store/index';
+import { observer } from 'mobx-react-lite';
 
-function TaskForm({ user, listTask, setListTask }) {
+const TaskForm = observer(() => {
   const [task, setTask] = useState('');
   const [startTime, setStartTime] = useState('');
-  const userId = user.id;
+
+  const { tasksStore } = useStore();
+  const { addTask } = tasksStore;
 
   const stopwatchOffset = new Date();
   stopwatchOffset.setSeconds(stopwatchOffset.getSeconds());
@@ -37,15 +40,7 @@ function TaskForm({ user, listTask, setListTask }) {
 
     const taskDuration = format;
 
-    const newTask = await addTask(
-      userId,
-      task,
-      startTime,
-      endTime,
-      taskDuration
-    );
-
-    setListTask([newTask.data, ...listTask]);
+    addTask(task, startTime, endTime, taskDuration);
 
     setTask('');
     setStartTime();
@@ -76,6 +71,6 @@ function TaskForm({ user, listTask, setListTask }) {
       </div>
     </div>
   );
-}
+});
 
 export default TaskForm;

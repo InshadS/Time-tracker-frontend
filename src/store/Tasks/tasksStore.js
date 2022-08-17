@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-import { deleteTask, getTask } from '../../api/task';
+import { addTask, deleteTask, getTask } from '../../api/task';
 
 class tasksStore {
   constructor() {
@@ -36,6 +36,29 @@ class tasksStore {
     const index = this.tasks.findIndex((e) => e.id === this.taskId);
     console.log(this.taskId);
     this.tasks.splice(index, 1);
+  };
+
+  addTask = async (task, startTime, endTime, taskDuration) => {
+    const response = await addTask(
+      this.userId,
+      task,
+      startTime,
+      endTime,
+      taskDuration
+    );
+
+    const newTask = {
+      id: response.data.id,
+      user_id: response.data.user_id,
+      task: response.data.task,
+      start_time: response.data.start_time,
+      end_time: response.data.end_time,
+      task_duration: response.data.task_duration,
+    };
+
+    if (response.status === 200) {
+      this.tasks.unshift(newTask);
+    }
   };
 }
 
