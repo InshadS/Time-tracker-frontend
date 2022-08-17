@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import TaskForm from './TaskForm';
 import TaskCard from './TaskCard';
-import { getTask } from '../../api/task';
-import moment from 'moment';
+import { observer } from 'mobx-react-lite';
+import { useStore } from '../../store/index';
 
-function TaskList({ user }) {
+const TaskList = observer(({ user }) => {
   const [listTask, setListTask] = useState([]);
   const [removeTask, setRemoveTask] = useState(false);
 
+  const { tasksStore } = useStore();
+  const { tasks, getTask, setUserId } = tasksStore;
+
+  setUserId(user.id);
+
   useEffect(() => {
-    getTask(user.id).then((response) => {
-      setListTask(response.data);
-    });
+    getTask();
   }, [removeTask]);
 
   return (
@@ -29,7 +32,7 @@ function TaskList({ user }) {
             ))} */}
           </span>
         </div>
-        {listTask.map((item) => (
+        {tasks.map((item) => (
           <TaskCard
             key={item.id}
             item={item}
@@ -41,6 +44,6 @@ function TaskList({ user }) {
       </div>
     </div>
   );
-}
+});
 
 export default TaskList;
