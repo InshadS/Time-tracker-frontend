@@ -9,9 +9,15 @@ import Dropdown from 'react-bootstrap/Dropdown';
 function Navbar({ user }) {
   const [sidebar, setSidebar] = useState(false);
 
+  const name = user.name.split(' ');
+  const firstName = name[0];
+  const lastName = name[1];
+
   const logout = () => {
     window.open('http://localhost:5000/auth/logout', '_self');
   };
+
+  console.log();
 
   return (
     <>
@@ -43,8 +49,8 @@ function Navbar({ user }) {
 
         <Dropdown className='logout-dropdown'>
           <Dropdown.Toggle>
-            {/* <img src={user.photos[0].value} alt='' className='avatar' />{' '} */}
-            {user.name}
+            {/* <img src={user.avatar} alt='' className='avatar' /> */}
+            {firstName}
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item>

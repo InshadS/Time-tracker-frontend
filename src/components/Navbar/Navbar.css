@@ -127,3 +127,6 @@
 .dropdown-item:active {
   background: none;
 }
+.dropdown-toggle::after {
+  display: none;
+}
