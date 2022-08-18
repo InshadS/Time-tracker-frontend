@@ -29,6 +29,11 @@ export const updateTask = async (id, task) => {
 };
 
 //Get all tasks
-export const getTask = async (userId) => {
-  return await axios.get(`/task/${userId}/list-tasks`);
+export const getTask = async (userId, page, size) => {
+  return await axios.get(`/task/${userId}/list-tasks`, {
+    params: {
+      page,
+      size,
+    },
+  });
 };

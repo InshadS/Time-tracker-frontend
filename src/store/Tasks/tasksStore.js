@@ -12,6 +12,10 @@ class tasksStore {
 
   userId = null;
 
+  page = 1;
+
+  size = 10;
+
   setTasks = (data) => {
     this.tasks = data;
   };
@@ -24,9 +28,26 @@ class tasksStore {
     this.userId = id;
   };
 
+  pageIncrement = () => {
+    this.page += 1;
+  };
+
+  pageDecrement = () => {
+    this.page -= 1;
+  };
+
+  setSize = (value) => {
+    this.page = 1;
+    this.size = value;
+  };
+
+  resetPage = () => {
+    this.page = 1;
+  };
+
   //Get all tasks
   getTask = async () => {
-    const response = await getTask(this.userId);
+    const response = await getTask(this.userId, this.page, this.size);
     if (response.status === 200) {
       this.setTasks(response.data);
     }
