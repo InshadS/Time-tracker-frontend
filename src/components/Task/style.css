@@ -69,23 +69,13 @@
   color: #2f2a3b;
 }
 
-.input-container {
-  width: 98%;
-  padding-top: 10px;
-  border-radius: 0px 0px 10px 10px;
-  background: #a3a2a2;
-  box-shadow: 8px 8px 29px #6f6e6e, -8px -8px 29px #d7d6d6;
-}
-
 .list-container {
   width: 98%;
-  height: 75vh;
+  /* max-height: 75vh; */
   background-color: #ebf3f3;
   margin-top: 10px;
   border-radius: 10px;
   box-shadow: -6px -6px 47px #a4abab, 6px 6px 47px #ffffff;
-  overflow: scroll;
-  overflow-y: hidden;
   position: relative;
 }
 
@@ -96,7 +86,7 @@
   background: #b8b7b847;
   color: #111;
   border-bottom: 1px solid #11111140;
-  padding: 15px;
+  padding: 10px;
   /* margin: 0px 10px 0px 10px; */
   /* border-radius: 10px; */
 }
@@ -162,4 +152,18 @@
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+}
+.task-container {
+  /* max-height: 600px; */
+  overflow: scroll;
+  overflow-x: hidden;
+  margin-bottom: 40px;
+}
+
+.pagination-container button {
+  background: #b8b7b8da;
+  padding: 5px;
+  border-radius: 10px;
+  border: none;
+  margin: 3px;
 }

@@ -28,12 +28,8 @@ class tasksStore {
     this.userId = id;
   };
 
-  pageIncrement = () => {
-    this.page += 1;
-  };
-
-  pageDecrement = () => {
-    this.page -= 1;
+  sizeIncrement = () => {
+    this.size += 5;
   };
 
   setSize = (value) => {
