@@ -16,11 +16,9 @@
   box-shadow: 8px 8px 29px #6f6e6e, -8px -8px 29px #d7d6d6;
   position: fixed;
   z-index: 1;
-  margin: 0px 10px 0px 10px;
 }
 @media (min-width: 991.98px) {
   .input-container {
-    /* margin-left: 12rem; */
-    width: 85%;
+    width: 88%;
   }
 }
