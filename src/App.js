@@ -11,7 +11,6 @@ import Tracker from './pages/Home/HomePages/Tracker/Tracker';
 import Calender from './pages/Home/HomePages/Calender';
 import Reports from './pages/Home/HomePages/Reports';
 import Projects from './pages/Home/HomePages/Projects';
-import Team from './pages/Home/HomePages/Team';
 import { useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { useStore } from './store';
@@ -40,7 +39,6 @@ const App = observer(() => {
             <Route path='/calender' element={<Calender />} />
             <Route path='/reports' element={<Reports />} />
             <Route path='/projects' element={<Projects />} />
-            <Route path='/team' element={<Team />} />
           </Route>
         </Routes>
       </Router>

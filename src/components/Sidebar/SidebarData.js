@@ -29,12 +29,6 @@ const SidebarData = [
     icon: <AiIcons.AiOutlineProject />,
     cName: 'nav-text',
   },
-  {
-    title: 'Team',
-    path: '/team',
-    icon: <IoIcons.IoMdPeople />,
-    cName: 'nav-text',
-  },
 ];
 
 export default SidebarData;
