@@ -32,7 +32,7 @@ const TaskList = observer(({ user }) => {
           ))}
         </div>
         <div className='pagination-container d-flex justify-content-center'>
-          <button onClick={sizeIncrement}>Load more...</button>
+          <button onClick={sizeIncrement}>Load more</button>
         </div>
       </div>
     </div>

@@ -23,35 +23,34 @@
 }
 
 .btn-start {
-  background: #474755;
+  background: #7c93b6;
   color: #ffffff;
   font-size: 1rem;
-  min-width: 75px;
-  width: 100px;
-  height: 50px;
+  /* min-width: 75px; */
+  width: 45px;
+  height: 45px;
   margin: 10px;
   border: none;
-  border-radius: 10px;
+  border-radius: 50%;
   cursor: pointer;
 }
 
 .btn-start:hover {
-  background-color: #2f2a3b;
+  background-color: #798daa;
 }
 .btn-start:active {
-  box-shadow: inset 8px 8px 25px #1f1b26, inset -8px -8px 25px #3f3950;
+  box-shadow: inset 8px 8px 25px #64758d, inset -8px -8px 25px #8ea5c7;
 }
 
 .btn-stop {
   background: #b0423ee5;
   color: #ffffff;
   font-size: 1rem;
-  min-width: 75px;
-  width: 100px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   margin: 10px;
   border: none;
-  border-radius: 10px;
+  border-radius: 50%;
   cursor: pointer;
 }
 
@@ -62,17 +61,17 @@
   box-shadow: inset 8px 8px 25px #993936, inset -8px -8px 25px #c74b46;
 }
 
-.task-form span {
+.time-counter {
   font-size: 1.2rem;
   margin: 10px;
-  color: #2f2a3b;
+  color: #fff;
 }
 
 .list-container {
   width: 98%;
   /* max-height: 75vh; */
   background-color: #ebf3f3;
-  margin-top: 7rem;
+  margin-top: 1rem;
   border-radius: 10px;
   box-shadow: -6px -6px 47px #a4abab, 6px 6px 47px #ffffff;
   position: relative;
@@ -82,7 +81,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #b8b7b847;
+  background: #cad3e1b0;
   color: #111;
   border-bottom: 1px solid #11111140;
   padding: 10px;
@@ -103,10 +102,10 @@
 }
 
 .TaskCard:hover {
-  background: #b8b7b8bd;
+  background: #cad3e1;
 }
 .TaskCard-focus {
-  background: #b8b7b8bd;
+  background: #cad3e1;
 }
 .task-tool {
   font-size: 24px;
@@ -157,9 +156,13 @@
 }
 
 .pagination-container button {
-  background: #b8b7b8da;
-  padding: 5px;
+  background: #cad3e1b0;
+  padding: 5px 15px;
   border-radius: 10px;
-  border: none;
+  border: 1px solid rgba(17, 17, 17, 0.377);
   margin: 3px;
+}
+
+.pagination-container button:hover {
+  background: #bfc8d5;
 }

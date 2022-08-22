@@ -4,6 +4,7 @@ import './style.css';
 import { useStopwatch } from 'react-timer-hook';
 import { useStore } from '../../store/index';
 import { observer } from 'mobx-react-lite';
+import * as FaIcons from 'react-icons/fa';
 
 const TaskForm = observer(() => {
   const [task, setTask] = useState('');
@@ -59,15 +60,20 @@ const TaskForm = observer(() => {
       />
       <div className='timer d-flex align-items-center justify-content-end'>
         {/* <span>00:00:00</span> */}
-        <span>{hourTime}</span>:<span>{minuteTime}</span>:
-        <span>{secondTime}</span>
+        <div className='time-counter'>
+          <span>{hourTime}</span>:<span>{minuteTime}</span>:
+          <span>{secondTime}</span>
+        </div>
         {startTime ? (
-          <button className='btn-stop' onClick={() => endSubmit()}>
-            Stop
+          <button
+            className='btn-stop d-flex justify-content-center align-items-center'
+            onClick={() => endSubmit()}
+          >
+            <FaIcons.FaStop />
           </button>
         ) : (
           <button className='btn-start' onClick={() => handleSubmit()}>
-            Start
+            <FaIcons.FaPlay />
           </button>
         )}
       </div>
