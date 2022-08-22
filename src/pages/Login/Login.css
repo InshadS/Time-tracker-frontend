@@ -6,12 +6,12 @@
   display: grid;
   justify-items: center;
   align-content: center;
-  background: #c9c7c9;
+  background: #e4edf1;
 }
 .login-logo {
   font-family: 'Pattaya', sans-serif;
   font-size: 2.5rem;
-  color: #474755;
+  color: #393e46;
   font-weight: bold;
   padding: 10px;
 }
@@ -28,7 +28,7 @@
   align-items: center;
   row-gap: 10px;
   flex-direction: column;
-  background: #474755;
+  background: #222831;
   padding: 45px;
   margin: 10px;
   border-radius: 10px;
