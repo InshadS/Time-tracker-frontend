@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 import { useStopwatch } from 'react-timer-hook';
 import { useStore } from '../../store/index';
@@ -9,6 +9,7 @@ import * as FaIcons from 'react-icons/fa';
 const TaskForm = observer(() => {
   const [task, setTask] = useState('');
   const [startTime, setStartTime] = useState('');
+  const [activeTimer, setActiveTimer] = useState(false);
 
   const { tasksStore } = useStore();
   const { addTask } = tasksStore;
@@ -31,6 +32,7 @@ const TaskForm = observer(() => {
     }
     setStartTime(moment().format());
     start();
+    setActiveTimer(true);
   };
 
   const endSubmit = async () => {
@@ -48,7 +50,20 @@ const TaskForm = observer(() => {
     setTask('');
     setStartTime();
     reset();
+    setActiveTimer(false);
   };
+
+  useEffect(() => {
+    const data = localStorage.getItem('TRACKER_COMPONENT');
+    console.log(data);
+    if (data) {
+      setActiveTimer(data);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('TRACKER_COMPONENT', activeTimer);
+  }, [activeTimer]);
 
   return (
     <div className='task-form '>
