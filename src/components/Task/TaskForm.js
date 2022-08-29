@@ -7,9 +7,13 @@ import { observer } from 'mobx-react-lite';
 import * as FaIcons from 'react-icons/fa';
 
 const TaskForm = observer(() => {
-  const [task, setTask] = useState('');
-  const [startTime, setStartTime] = useState('');
-  const [activeTimer, setActiveTimer] = useState(false);
+  const [task, setTask] = useState(localStorage.getItem('task_name') || '');
+  const [startTime, setStartTime] = useState(
+    localStorage.getItem('start_time') || ''
+  );
+  const [activeTimer, setActiveTimer] = useState(
+    JSON.parse(localStorage.getItem('track_btn')) || false
+  );
 
   const { tasksStore } = useStore();
   const { addTask } = tasksStore;
@@ -32,7 +36,10 @@ const TaskForm = observer(() => {
     }
     setStartTime(moment().format());
     start();
-    setActiveTimer(true);
+    setActiveTimer(!activeTimer);
+    localStorage.setItem('task_name', task);
+    localStorage.setItem('start_time', moment().format());
+    localStorage.setItem('track_btn', JSON.stringify(!activeTimer));
   };
 
   const endSubmit = async () => {
@@ -50,20 +57,11 @@ const TaskForm = observer(() => {
     setTask('');
     setStartTime();
     reset();
-    setActiveTimer(false);
+    setActiveTimer(!activeTimer);
+    localStorage.setItem('task_name', '');
+    localStorage.setItem('start_time', '');
+    localStorage.setItem('track_btn', JSON.stringify(!activeTimer));
   };
-
-  useEffect(() => {
-    const data = localStorage.getItem('TRACKER_COMPONENT');
-    console.log(data);
-    if (data) {
-      setActiveTimer(data);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('TRACKER_COMPONENT', activeTimer);
-  }, [activeTimer]);
 
   return (
     <div className='task-form '>
@@ -71,7 +69,10 @@ const TaskForm = observer(() => {
         type='text'
         placeholder='What are you working on?'
         value={task}
-        onChange={(e) => setTask(e.target.value)}
+        onChange={(e) => {
+          setTask(e.target.value);
+          localStorage.setItem('task_name', e.target.value);
+        }}
       />
       <div className='timer d-flex align-items-center justify-content-end'>
         {/* <span>00:00:00</span> */}
@@ -79,7 +80,7 @@ const TaskForm = observer(() => {
           <span>{hourTime}</span>:<span>{minuteTime}</span>:
           <span>{secondTime}</span>
         </div>
-        {startTime ? (
+        {activeTimer ? (
           <button
             className='btn-stop d-flex justify-content-center align-items-center'
             onClick={() => endSubmit()}
