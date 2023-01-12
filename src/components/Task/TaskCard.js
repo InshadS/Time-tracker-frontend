@@ -3,6 +3,7 @@ import moment from 'moment';
 import React, { useState } from 'react';
 import * as MdIcons from 'react-icons/md';
 import { useStore } from '../../store/index';
+import DeleteModal from '../Modal/DeleteModal';
 
 const TaskCard = observer(({ item }) => {
   const [value, setValue] = useState(item.task);
@@ -53,10 +54,11 @@ const TaskCard = observer(({ item }) => {
         <span className='duration '>{item.task_duration}</span>
       </div>
       <div className='task-tool d-flex justify-content-end'>
-        <MdIcons.MdDeleteForever
+        {/* <MdIcons.MdDeleteForever
           onClick={handleDelete}
           style={{ cursor: 'pointer' }}
-        />
+        /> */}
+        <DeleteModal handleDelete={handleDelete} />
       </div>
     </div>
   );
