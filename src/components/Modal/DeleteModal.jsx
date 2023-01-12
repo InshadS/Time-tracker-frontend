@@ -5,15 +5,15 @@ import {
   DialogTitle,
   Slide,
 } from '@mui/material';
-import * as React from 'react';
+import { forwardRef, useState } from 'react';
 import * as MdIcons from 'react-icons/md';
 
-const Transition = React.forwardRef(function Transition(props, ref) {
+const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />;
 });
 
 const DeleteModal = ({ handleDelete }) => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
